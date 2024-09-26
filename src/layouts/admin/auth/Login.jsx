@@ -30,14 +30,11 @@ const onSubmit = async (values, submitMethods, navigate, prop) => {
                     //window.location.reload();
                 }
             }
-        } else {
-            Alert("متاسفم...!", res.data.message, "error");
         }
         submitMethods.setSubmitting(false);
     } catch (error) {
         submitMethods.setSubmitting(false);
 
-        //Alert("متاسفم...!", "متاسفانه مشکلی از سمت سرور رخ داده", "error");
     }
 };
 

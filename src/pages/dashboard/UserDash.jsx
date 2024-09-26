@@ -25,21 +25,7 @@ const Dashboard = (prop) => {
   const loginToken = prop.loginToken;
   const siteInfo = prop.siteInfo;
   const handleManifest = () => {
-    window.addEventListener(
-      "beforeinstallprompt",
-      (e) => {
-        //$("#pushactive").trigger("click");
-        // Prevent Chrome 67 and earlier from automatically showing the prompt
-        e.preventDefault();
-        // Stash the event so it can be triggered later.
-        window.deferredPrompt = e;
-        setTimeout(function () {
-          addHome();
-        }, 3000);
-        // Update UI to notify the user they can add to home screen
-      },
-      { once: true }
-    );
+    
     if (isWebview()) {
       return false;
     }
@@ -65,8 +51,8 @@ const Dashboard = (prop) => {
       window.addEventListener(
         "focus",
         () => {
-          $("#reconn").trigger("click");
-          $("#pushactive").trigger("click");
+          //$("#reconn").trigger("click");
+        //  $("#pushactive").trigger("click");
         },
         { once: true }
       );
@@ -115,6 +101,23 @@ const Dashboard = (prop) => {
         element.setAttribute("rel", "manifest");
         element.setAttribute("href", url);
         document.querySelector("head").appendChild(element);
+       
+          window.addEventListener(
+            "beforeinstallprompt",
+            (e) => {
+              //$("#pushactive").trigger("click");
+              // Prevent Chrome 67 and earlier from automatically showing the prompt
+              e.preventDefault();
+              // Stash the event so it can be triggered later.
+              window.deferredPrompt = e;
+              setTimeout(function () {
+                addHome();
+              }, 3000);
+              // Update UI to notify the user they can add to home screen
+            },
+            { once: true }
+          );
+        
       }
     }
   };

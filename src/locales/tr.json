@@ -16,7 +16,7 @@
     "rakeback": "Rakeback",
     "totalreward": "Toplam Ödül",
     "norecord": "Kayıt bulunamadı.",
-    "loginheader": "Galaxy'ye Giriş",
+    "loginheader": "CasinoRoyal'ye Giriş",
     "username": "Kullanıcı Adı",
     "password": "Şifre",
     "forgetpassQuestion": "Şifrenizi mi unuttunuz?",
@@ -24,8 +24,8 @@
     "email": "E-posta",
     "passwordRepeat": "Şifreyi Tekrarla",
     "register": "Hesap Oluştur",
-    "registerheader": "Galaxy'de Kayıt Ol",
-    "registerslogan": "Galaxy sitesinde hesap oluşturduğunuz için çok teşekkür ederiz.",
+    "registerheader": "CasinoRoyal'de Kayıt Ol",
+    "registerslogan": "CasinoRoyal sitesinde hesap oluşturduğunuz için çok teşekkür ederiz.",
     "registerby": "Tarafından davet edildi",
     "noAccess": "Bu bölüme erişmek için giriş yapmanız gerekiyor.",
     "telegramsupport": "Telegram Destek",
@@ -77,6 +77,16 @@
 "save":"Kaydet",
 "passlinksent":"Şifre değişikliği onay linki e-posta adresinize gönderildi. Tıkladıktan sonra şifreniz değişecektir.",
 "error":"Hata",
-"emailnotfound":"Bu e-posta bulunamadı."
+"error400":"Maalesef sunucuda sorun var veya internet erişimi yok.",
+"errorinvaliduserpass":"Kullanıcı adı veya şifre yanlış.",
+"emailnotfound":"Bu e-posta bulunamadı.",
+"installapp":"Uygulamayı yükleyin",
+"installapplong":"CasinoRoyal uygulamasını yükleyin",
+"addtohomeHead":"Casino Royale'in bir uygulaması var. Ana ekranınıza yüklemek ve tam ekran kullanmak için çift tıklamanız yeterlidir.",
+"addtohome_1":"İlk önce menü çubuğundaki mavi paylaş düğmesine basın.",
+"addtohome_2":"Daha sonra açılan menüden 'Ana Ekrana Ekle' veya 'Add to Home Screen' seçeneğine tıklayın.",
+"dctitle":"Sunucuyla bağlantı kesildi",
+"dcdesc":"Sunucuyla bağlantınız kesildi. Yeniden bağlanmak için aşağıdaki düğmeyi kullanın.",
+"connectagain":"Yeniden bağlan"
 
 }

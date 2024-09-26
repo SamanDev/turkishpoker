@@ -47,9 +47,10 @@ export const MyDeposit = (title, text, openDeposit) => {
 export const MyToast = (title, icon) => {
   const Toast = Swal.mixin({
     toast: true,
+    position: "top-end",
     background: "#000",
     showConfirmButton: false,
-    timer: 7000,
+    timer: 10000,
     timerProgressBar: true,
     customClass: {
       htmlContainer: "position-absolute p-2 lh-base",

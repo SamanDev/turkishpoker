@@ -4,6 +4,8 @@ import { MyConfirm, MyToast, MyDeposit, MyToastDone } from "../utils/myAlert";
 import { APIURL } from "../const";
 import UserWebsocket from "./user.websocket";
 import eventBus from "./eventBus";
+import Trans from "../utils/getword";
+
 export const apiPath = APIURL.onlinePath;
 
 export function checkBlock(res) {
@@ -71,6 +73,8 @@ axios.interceptors.response.use(
     return res;
   },
   (error) => {
+    console.log(error);
+    
     if (error.response.status == 401 || error.response.status == 400) {
       //MyToast("متاسفانه مشکلی از سمت سرور رخ داده", "error");
       //window.location = "/logout";
@@ -91,15 +95,21 @@ axios.interceptors.response.use(
       error.response.status != 400 &&
       error.response.status != 200
     ) {
-     // MyToast("متاسفانه مشکلی از سمت سرور رخ داده", "error");
+      MyToast(Trans("error400"), "error");
       //   MyToast(error.response.data.message, "error");
       // Alert(error.response.status, error.response.data.message, "error");
     }
-    if (error.response.status == 400) {
+    if (error.response.status == 400 && error.response.request.responseURL.indexOf("/signin")==-1) {
       //MyToast("نام کاربری یا کلمه عبور اشتباه است.", "error");
       MyToast(error.response.data.message, "error");
       // Alert(error.response.status, error.response.data.message, "error");
     }
+    if (error.response.status == 400 && error.response.request.responseURL.indexOf("/signin")>-1) {
+      //MyToast("نام کاربری یا کلمه عبور اشتباه است.", "error");
+      MyToast(Trans("errorinvaliduserpass"), "error");
+      // Alert(error.response.status, error.response.data.message, "error");
+    }
+   
     if (error.response.status == 401) {
       var loginKey = localStorage.getItem("galaxyUserkeyToken");
 
@@ -111,7 +121,7 @@ axios.interceptors.response.use(
         MyToast("نام کاربری یا کلمه عبور اشتباه است.", "error");
       }
     }
-    MyToast(error.response.data.message, "error");
+   // MyToast(error.response.data.message, "error");
 
     return Promise.reject(error);
   }

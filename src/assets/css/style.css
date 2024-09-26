@@ -127,21 +127,20 @@ video::-webkit-media-controls-panel {
 
 }
 .iOSPWA-title {
-    font-family: "BYekan" !important;
-    direction: rtl;
+   
     font-size: 17px !important;
     line-height: 32px !important;
 }
 .iOSPWA-body span,
 .iOSPWA-steps p {
-    font-family: "BYekan" !important;
-    direction: rtl;
+    font-family: "Kanit", sans-serif !important;
     line-height: 23px !important;
-    text-align: right;
+    
 }
-.iOSPWA-steps p {
+.iOSPWA-steps p,.iOSPWA-steps p span {
     line-height: 21px !important;
-    font-size: 80% !important;
+    font-family: "Kanit", sans-serif !important;
+    font-weight: 300 !important;
 }
 input.farsi {
     font-size: 80% !important;

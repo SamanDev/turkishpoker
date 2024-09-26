@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Header, Divider, Button, Segment } from "semantic-ui-react";
 import { checkBlock } from "../../../services/httpService";
 import { getUserService } from "../../../services/auth";
+import Trans from "../../../utils/getword";
+
 const depositArea = (prop) => {
   const [depMode, setDepMode] = useState(false);
   const loginToken = prop.loginToken;
@@ -15,18 +17,13 @@ const depositArea = (prop) => {
         boxShadow: "0 40px 50px rgba(81,88,95,.6549019607843137)",
       }}
     >
-      <Header as="h2" inverted className="farsi">
-        قطع ارتباط با سرور
-      </Header>
+      <Header as="h2" inverted className="farsi">{Trans("dctitle")}</Header>
       <Divider hidden />
 
-      <p className="farsi">
-        ارتباط شما با سرور گلکسی قطع شده است. برای اتصال مجدد از دکمه زیر
-        استفاده نمایید.
-      </p>
+      <p className="farsi">{Trans("dcdesc")}</p>
       <Divider inverted />
       <Button
-        content="اتصال مجدد"
+        content={Trans("connectagain")}
         fluid
         type="button"
         size="huge"
