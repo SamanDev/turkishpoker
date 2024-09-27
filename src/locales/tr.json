@@ -87,6 +87,7 @@
 "addtohome_2":"Daha sonra açılan menüden 'Ana Ekrana Ekle' veya 'Add to Home Screen' seçeneğine tıklayın.",
 "dctitle":"Sunucuyla bağlantı kesildi",
 "dcdesc":"Sunucuyla bağlantınız kesildi. Yeniden bağlanmak için aşağıdaki düğmeyi kullanın.",
-"connectagain":"Yeniden bağlan"
+"connectagain":"Yeniden bağlan",
+"loading":"Lütfen bekleyin..."
 
 }

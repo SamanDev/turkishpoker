@@ -115,7 +115,7 @@ const Rightcontent = (prop) => {
             <span></span>
           </div>
         </Segment>
-        {keysArea()}
+        <Tour /> {keysArea()}
       </div>
     </>
   );

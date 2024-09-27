@@ -505,7 +505,8 @@ export const GetMenu = (siteInfo, loginToken) => {
                     },
                 ],
             },
-            {
+          
+            /*   {
                 label: "Hediyeler Galaxy",
                 title: "Hediyeler Galaxy",
                 idname: "giftarea",
@@ -514,8 +515,7 @@ export const GetMenu = (siteInfo, loginToken) => {
                 icongalaxy: "gifts",
                 aria: "giftsarea animated bounceIn delay-02s",
                 component: "gifts",
-            },
-            /*  {
+            }, {
             label: "En İyi Oyuncular",
             title: "En İyi Oyuncular",
             idname: "topplayer",

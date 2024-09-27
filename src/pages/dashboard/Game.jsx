@@ -8,6 +8,7 @@ import { getPokerSession } from "../../services/auth";
 import { Tab, Icon, Dropdown, Dimmer, Loader } from "semantic-ui-react";
 import { gameData, gameDataMain, gameDataName, gameDataMainName } from "../../const";
 import $ from "jquery";
+import  Trans  from "../../utils/getword";
 
 const getFrameLink = (game) => {
     var link = game;
@@ -196,9 +197,7 @@ const getFrameLink = (game) => {
                         {(gameLoader || sessionKey == "" || !siteInfo?.pokerUrl) && mainGame == "poker" && (
                             <div className={isFull ? "framegame loader fullscreen" : "framegame loader panelfull"}>
                                 <Dimmer active>
-                                    <Loader className="farsi-inline" size="large">
-                                        لطفا صبر کنید...
-                                    </Loader>
+                                    <Loader className="farsi-inline" size="large">{Trans("loading")}</Loader>
                                 </Dimmer>
                             </div>
                         )}
@@ -234,9 +233,7 @@ const getFrameLink = (game) => {
                         {(gameLoader || !siteInfo?.gamesUrl) && mainGame == "poker" && (
                             <div className={isFull ? "framegame loader fullscreen" : "framegame loader"}>
                                 <Dimmer active>
-                                    <Loader className="farsi-inline" size="large">
-                                        لطفا صبر کنید...
-                                    </Loader>
+                                <Loader className="farsi-inline" size="large">{Trans("loading")}</Loader>
                                 </Dimmer>
                             </div>
                         )}
