@@ -17,7 +17,7 @@ const onSubmit = async (values, submitMethods, prop) => {
     
         MyToastDone(Trans("passlinksent"), "success");
         submitMethods.resetForm();
-      
+        prop.closeMenu();
     } else {
       MyToast(Trans("emailnotfound"), "error");
     }

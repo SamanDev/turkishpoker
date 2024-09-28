@@ -1,19 +1,29 @@
 import React, { useState } from "react";
 import { Button, Message, Icon } from "semantic-ui-react";
 import { resendActivationLink } from "../../../../services/auth";
-import { MyToast } from "../../../../utils/myAlert";
+import { MyToast,MyToastDone } from "../../../../utils/myAlert";
 import { Alert } from "../../../../utils/alerts";
+import Trans from "../../../../utils/getword";
+
 const depositArea = (prop) => {
   const [loading, setLoading] = useState(false);
   const onSubmit = async () => {
     setLoading(true);
+    
     try {
       const res = await resendActivationLink();
-      if (res.status == 200) {
-        setLoading(false);
-      }
+     
+        if (res.status == 200) {
+          MyToastDone(Trans("activelinksent"), "success");
+          setLoading(false);
+          prop.closeMenu();
+        } else {
+          MyToast(Trans("errorserver"), "error");
+          //Alert("متاسفم...!", res.data.message, "error");
+        }
+      
     } catch (error) {
-      Alert("متاسفم...!", "متاسفانه مشکلی از سمت سرور رخ داده", "error");
+      //Alert("متاسفم...!", "متاسفانه مشکلی از سمت سرور رخ داده", "error");
     }
   };
   return (
@@ -27,9 +37,7 @@ const depositArea = (prop) => {
           style={{ fontSize: 20 }}
         />
 
-        <Message.Content className="farsi">
-          برای استفاده از این سرویس ابتدا باید ایمیل خود را تایید نمایید.
-        </Message.Content>
+        <Message.Content className="farsi">{Trans("activeemail")} </Message.Content>
       </Message>
       <Button
         fluid
@@ -39,9 +47,7 @@ const depositArea = (prop) => {
         disabled={loading}
         loading={loading}
         onClick={() => onSubmit()}
-      >
-        ارسال لینک تایید
-      </Button>
+      >{Trans("sendLink")}</Button>
     </>
   );
 };

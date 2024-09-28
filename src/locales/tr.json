@@ -75,9 +75,11 @@
 "department":"Departman",
 "delete":"Sil",
 "save":"Kaydet",
+"activelinksent":"Aktivasyon linki e-posta adresinize gönderildi.",
 "passlinksent":"Şifre değişikliği onay linki e-posta adresinize gönderildi. Tıkladıktan sonra şifreniz değişecektir.",
 "error":"Hata",
 "error400":"Maalesef sunucuda sorun var veya internet erişimi yok.",
+"errorserver":"Teknik sorun! Lütfen daha sonra tekrar deneyin.",
 "errorinvaliduserpass":"Kullanıcı adı veya şifre yanlış.",
 "emailnotfound":"Bu e-posta bulunamadı.",
 "installapp":"Uygulamayı yükleyin",
@@ -88,6 +90,7 @@
 "dctitle":"Sunucuyla bağlantı kesildi",
 "dcdesc":"Sunucuyla bağlantınız kesildi. Yeniden bağlanmak için aşağıdaki düğmeyi kullanın.",
 "connectagain":"Yeniden bağlan",
-"loading":"Lütfen bekleyin..."
+"loading":"Lütfen bekleyin...",
+"activeemail":"Bu hizmeti kullanmak için öncelikle e-postanızı onaylamanız gerekir."
 
 }
