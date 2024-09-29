@@ -73,7 +73,7 @@ axios.interceptors.response.use(
     return res;
   },
   (error) => {
-    console.log(error);
+    
     
     if (error.response.status == 401 || error.response.status == 400) {
       //MyToast("متاسفانه مشکلی از سمت سرور رخ داده", "error");
@@ -95,8 +95,8 @@ axios.interceptors.response.use(
       error.response.status != 400 &&
       error.response.status != 200
     ) {
-      MyToast(Trans("error400"), "error");
-      //   MyToast(error.response.data.message, "error");
+      //MyToast(Trans("error400"), "error");
+         MyToast(error.response.data.message, "error");
       // Alert(error.response.status, error.response.data.message, "error");
     }
     if (error.response.status == 400 && error.response.request.responseURL.indexOf("/signin")==-1) {
@@ -106,7 +106,7 @@ axios.interceptors.response.use(
     }
     if (error.response.status == 400 && error.response.request.responseURL.indexOf("/signin")>-1) {
       //MyToast("نام کاربری یا کلمه عبور اشتباه است.", "error");
-      MyToast(Trans("errorinvaliduserpass"), "error");
+      MyToast(error.response.data.message, "error");
       // Alert(error.response.status, error.response.data.message, "error");
     }
    

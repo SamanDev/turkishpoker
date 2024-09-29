@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Label, Input, Button, Icon, Divider, Segment,Image ,Header} from "semantic-ui-react";
+import { Label, Input, Button, Icon, Divider, Segment,Image ,Header,Dimmer,Loader} from "semantic-ui-react";
 import AnimIcon from "../../utils/inviteIcon";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import MyMsg from "../../utils/MsgDesc";
@@ -10,6 +10,7 @@ const depositArea = (prop) => {
   const [copy, setCopy] = useState(false);
   const siteInfo = prop.siteInfo;
   const loginToken = prop.loginToken;
+ 
   var link = siteInfo.referUrl + "ref/" + loginToken.username;
   const copyDo = () => {
     setCopy(true);
@@ -17,7 +18,14 @@ const depositArea = (prop) => {
       setCopy(false);
     }, 3000);
   };
-
+  if(!siteInfo?.referUrl)  {
+return (
+        <Dimmer active>
+            <Loader className="farsi-inline" size="large">{Trans("loading")}</Loader>
+        </Dimmer>
+)
+    
+}
   return (
     <span className="myaccount popupmenu">
       

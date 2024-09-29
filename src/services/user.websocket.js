@@ -87,6 +87,11 @@ class UserWebsocket {
       }
     };
     ws.onerror = function (e) {
+      ws?.close();
+        ws = null;
+        if (tkn) {
+          eventBus.dispatch("eventsDC", "");
+        }
       if (e.type === "error") {
         ws?.close();
         ws = null;

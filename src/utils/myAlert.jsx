@@ -48,7 +48,7 @@ export const MyToast = (title, icon) => {
   const Toast = Swal.mixin({
     toast: true,
     position: "top-end",
-    background: "#000",
+    background: "#4e4e4e",
     showConfirmButton: false,
     timer: 10000,
     timerProgressBar: true,
@@ -69,14 +69,6 @@ export const MyToast = (title, icon) => {
     title:
       Trans("error")+":\n\n" +
       title
-        .replace(
-          "Error: Email is already in use!",
-          "این ایمیل در گلکسی موجود است."
-        )
-        .replace(
-          "Error: Username is already taken!",
-          "این نام کاربری در گلکسی موجود است."
-        ),
   });
 };
 export const MyToastDone = (title, icon) => {
