@@ -45,6 +45,14 @@ const GameInbox = (prop) => {
                         <Divider hidden fitted />
                     </Grid.Column>
 
+                    <Grid.Column mobile={16} tablet={8} computer={8} as={Link} to={"/games/" + gameDataMain[1]} id={"open" + gameDataMain[1]} only="tablet computer">
+                        <GameBox game={gameDataMain[1]} name={Trans("game_wheel")} trigger="loop" height="130px" stroke="20" />
+                        <Divider hidden fitted />
+                    </Grid.Column>
+                    <Grid.Column mobile={16} tablet={8} computer={8} as={Link} to={"#/games/" + gameDataMain[2]} id={"open" + gameDataMain[2]}>
+                        <GameBox game={gameDataMain[2]} name={Trans("game_bet")} height="130px" stroke="20" bg={sessionmyKey?.bet?"":"grayscale(60%)"} />
+                        <Divider hidden fitted />
+                    </Grid.Column>
                     <Grid.Column mobile={16} tablet={8} computer={8} as={Link}  to={sessionmyKey?.backgammon ? "/games/" + gameDataMain[3]:"#/games/" + gameDataMain[3]} id={"open" + gameDataMain[3]} only="tablet computer">
                         <GameBox game={gameDataMain[3]} name={Trans("game_backgammon")} height="130px" stroke="20" bg={sessionmyKey?.backgammon?"":"grayscale(60%)"}  />
                         <Divider hidden fitted />
