@@ -15,7 +15,7 @@ import { Button, Progress,Icon, Divider,Label } from "semantic-ui-react";
 import DollarSelect from "../../../../components/form/dollarSelect";
 const onSubmit = async (values, submitMethods, navigate, prop, setRefresh) => {
   try {
-    const res = await cashierService(values, "coinPayments", "");
+    const res = await cashierService(values, "nowPayments", "");
     if (res.status == 200) {
       Alert("Done", "انجام شد.", "success");
       setRefresh(true);
@@ -66,7 +66,7 @@ const depositArea = (prop) => {
       initialValues={{
         amount: 0,
 
-        action: "cashout",
+        action: "payout",
         usd: false,
         coin: "USDT.TRC20",
         amountDollar: 0,

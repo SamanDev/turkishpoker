@@ -10,7 +10,7 @@ import { Alert } from "../../../../utils/alerts";
 import { cashierService } from "../../../../services/cashier";
 
 const initialValues = {
-  action: "deposit",
+  action: "payment",
   amount: 0,
   coin: "USDT.TRC20",
   amountDollar: 100,
@@ -28,7 +28,7 @@ const onSubmit = async (values, submitMethods, navigate, prop, setRefresh) => {
   //values.dollarPrice = parseInt(values.amount / values.amountDollar);
   //values.amount = values.amountDollar;
   try {
-    const res = await cashierService(values, "coinPayments", "");
+    const res = await cashierService(values, "nowPayments", "");
     if (res.status == 200) {
       if (res.data?.address) {
         setRefresh(true);
