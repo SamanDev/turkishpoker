@@ -110,35 +110,7 @@ const Report = (prop) => {
                         </div>
                       )}
 
-                      <div className="cashlist">
-                        {(gateway == "Bitcoin" ||
-                          gateway == "USDT" ||
-                          gateway == "PerfectMoney") && (
-                          <>
-                            Amount &nbsp;
-                            <span className="text-gold">
-                              ${doCurrency(desc.dollarAmount)}
-                            </span>
-                          </>
-                        )}
-                        <br />
-                        {(gateway == "VisaGiftCode" ||
-                          gateway == "PerfectMoney") && (
-                          <>
-                            <div className="text-gold">
-                              {desc ? desc.VOUCHER_NUMBER : item.description}
-                            </div>
-                          </>
-                        )}
-
-                        {(gateway == "Bitcoin" || gateway == "USDT") &&
-                          canShowPending &&
-                          item.status == "Pending" && (
-                            <>
-                              <QR note={item} doCurrency={doCurrency} />
-                            </>
-                          )}
-                      </div>
+                   
                     </List.Description>
                   </List.Content>
                 ) : (
@@ -167,42 +139,7 @@ const Report = (prop) => {
                         </div>
                       )}
 
-                      <div className="cashlist">
-                        {(gateway == "Bitcoin" ||
-                          gateway == "USDT" ||
-                          gateway == "PerfectMoney") && (
-                          <>
-                            Amount &nbsp;
-                            <span className="text-gold">
-                              ${doCurrency(desc.dollarAmount)}
-                            </span>
-                            <br />
-                            Rate
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{" "}
-                            <span className="text-gold">
-                              {doCurrency(
-                                parseInt(desc.dollarPrice).toFixed(0)
-                              )}
-                            </span>
-                          </>
-                        )}
-
-                        {(gateway == "VisaGiftCode" ||
-                          gateway == "PerfectMoney") && (
-                          <>
-                            <div className="text-gold">
-                              {desc ? desc.VOUCHER_NUMBER : item.description}
-                            </div>
-                          </>
-                        )}
-                        {(gateway == "Bitcoin" || gateway == "USDT") &&
-                          canShowPending &&
-                          item.status == "Pending" && (
-                            <>
-                              <QR note={item} doCurrency={doCurrency} />
-                            </>
-                          )}
-                      </div>
+                     
                     </List.Description>
                   </List.Content>
                 )}

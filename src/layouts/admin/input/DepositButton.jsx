@@ -3,12 +3,13 @@ import { Button, Divider } from "semantic-ui-react";
 import $ from "jquery";
 import Report from "../../../pages/dashboard/ReportDep";
 import ReportPen from "../../../pages/dashboard/ReportPen";
+import Trans from "../../../utils/getword";
 
 const DepositButton = (prop) => {
   return (
     <>
       <Button
-        content={prop.val ? prop.val : "واریز"}
+        content={prop.val ? prop.val : Trans("deposit")}
         fluid
         style={{ marginTop: 10 }}
         className="farsi"

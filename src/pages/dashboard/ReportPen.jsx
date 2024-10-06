@@ -107,11 +107,7 @@ const Report = (prop) => {
                       </List.Description>
                       <List.Description>
                         <div className="pad10tb">
-                          <AmountColor
-                            amount={item.dollarAmount}
-                            sign={item.endBalance - item.startBalance + 1}
-                            className="text-gold"
-                          />
+                          
                         </div>
                         <div>{gateway}</div>
                         {!prop.pending && (
@@ -121,86 +117,9 @@ const Report = (prop) => {
                           </div>
                         )}
 
-                        <div className="cashlist">
-                          {(gateway == "Bitcoin" ||
-                            gateway == "USDT" ||
-                            gateway == "PerfectMoney") && (
-                            <>
-                              Amount &nbsp;
-                              <span className="text-gold">
-                                ${doCurrency(desc.dollarAmount)}
-                              </span>
-                            </>
-                          )}
-                          {gateway == "PerfectMoney" && (
-                            <>
-                              <br />
-                            </>
-                          )}
-                        </div>
-                        {(item.gateway == "Bitcoin" ||
-                          item.gateway == "USDT") &&
-                          item.mode == "Deposit" && (
-                            <>
-                              <QR note={item} doCurrency={doCurrency} />
-                            </>
-                          )}
+                       
                       </List.Description>
-                      {item.cashoutDescription &&
-                        item.gateway == "IranShetab" && (
-                          <Segment inverted size="mini">
-                            {item.cashoutDescription
-                              .sort((a, b) => (a.id > b.id ? 1 : -1))
-                              .map((f, i) => (
-                                <div key={i.toString()}>
-                                  <span className="rightfloat">
-                                    {convertDateToJalali(
-                                      f.cashoutDescriptionFromSet[0].date
-                                    )}
-                                  </span>
-                                  <span className="text-gold">
-                                    {doCurrency(
-                                      f.cashoutDescriptionFromSet[0].amount
-                                    )}
-                                  </span>
-                                  <br />
-                                  <div className="farsi text-secondary rightfloat">
-                                    واریز به <br />
-                                    مجموع:{" "}
-                                    <span className="text-gold">
-                                      {doCurrency(
-                                        sumOf(item.cashoutDescription, f.id)
-                                      )}
-                                    </span>
-                                  </div>
-                                  <span className="farsi">
-                                    {f.cashoutDescriptionToSet[0].bankName}
-                                  </span>
-                                  <br />
-                                  <ConvertCart
-                                    cartNo={
-                                      f.cashoutDescriptionToSet[0].cardNumber
-                                    }
-                                    isLock={true}
-                                  />
-                                  <br />
-                                  <div className="farsi text-secondary float-end">
-                                    از
-                                  </div>{" "}
-                                  <br />
-                                  <ConvertCart
-                                    cartNo={
-                                      f.cashoutDescriptionFromSet[0].cardNumber
-                                    }
-                                    isLock={true}
-                                  />
-                                  {item.cashoutDescription.length > i + 1 && (
-                                    <Divider />
-                                  )}
-                                </div>
-                              ))}
-                          </Segment>
-                        )}
+                    
                     </List.Content>
                   ) : (
                     <List.Content>
@@ -227,92 +146,9 @@ const Report = (prop) => {
                           </div>
                         )}
 
-                        <div className="cashlist">
-                          {(gateway == "Bitcoin" ||
-                            gateway == "USDT" ||
-                            gateway == "PerfectMoney") && (
-                            <>
-                              Amount &nbsp;
-                              <span className="text-gold">
-                                ${doCurrency(desc.dollarAmount)}
-                              </span>
-                              <br />
-                              Rate
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{" "}
-                              <span className="text-gold">
-                                {doCurrency(desc.dollarPrice)}
-                              </span>
-                            </>
-                          )}
-                          {gateway == "PerfectMoney" && (
-                            <>
-                              <br />
-                            </>
-                          )}
-                        </div>
-                        {(item.gateway == "Bitcoin" ||
-                          item.gateway == "USDT") &&
-                          item.mode == "Deposit" && (
-                            <>
-                              <QR note={item} doCurrency={doCurrency} />
-                            </>
-                          )}
+                        
                       </List.Description>
-                      {item.cashoutDescription &&
-                        item.gateway == "IranShetab" && (
-                          <Segment inverted size="mini">
-                            {item.cashoutDescription
-                              .sort((a, b) => (a.id > b.id ? 1 : -1))
-                              .map((f, i) => (
-                                <div key={i.toString()}>
-                                  <span className="rightfloat">
-                                    {convertDateToJalali(
-                                      f.cashoutDescriptionFromSet[0].date
-                                    )}
-                                  </span>
-                                  <span className="text-gold">
-                                    {doCurrency(
-                                      f.cashoutDescriptionFromSet[0].amount
-                                    )}
-                                  </span>
-                                  <br />
-                                  <div className="farsi text-secondary rightfloat">
-                                    واریز به <br />
-                                    مجموع:{" "}
-                                    <span className="text-gold">
-                                      {doCurrency(
-                                        sumOf(item.cashoutDescription, f.id)
-                                      )}
-                                    </span>
-                                  </div>
-                                  <span className="farsi">
-                                    {f.cashoutDescriptionToSet[0].bankName}
-                                  </span>
-                                  <br />
-                                  <ConvertCart
-                                    cartNo={
-                                      f.cashoutDescriptionToSet[0].cardNumber
-                                    }
-                                    isLock={true}
-                                  />
-                                  <br />
-                                  <div className="farsi text-secondary float-end">
-                                    از
-                                  </div>{" "}
-                                  <br />
-                                  <ConvertCart
-                                    cartNo={
-                                      f.cashoutDescriptionFromSet[0].cardNumber
-                                    }
-                                    isLock={true}
-                                  />
-                                  {item.cashoutDescription.length > i + 1 && (
-                                    <Divider />
-                                  )}
-                                </div>
-                              ))}
-                          </Segment>
-                        )}
+                      
                     </List.Content>
                   )}
                 </List.Item>

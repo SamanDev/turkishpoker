@@ -15,6 +15,8 @@ import ActivetMsg from "./activetMsg";
 import { Statistic, Segment } from "semantic-ui-react";
 
 import { doCurrency } from "../../../../const";
+import Trans from "../../../../utils/getword";
+
 const depositArea = (prop) => {
   const [depMode, setDepMode] = useState(prop.gateway);
   const loginToken = prop.loginToken;
@@ -27,21 +29,22 @@ const depositArea = (prop) => {
       ) : (
         <>
           <Segment inverted className="blnc" size="mini">
-            <Statistic inverted size="mini">
-              <Statistic.Value>
-                {prop.menu?.usd ? (
-                  <>
-                    <span className="text-gold">$</span>{" "}
-                    {doCurrency(loginToken?.balance2)}
-                  </>
-                ) : (
-                  doCurrency(loginToken?.balance)
-                )}
-              </Statistic.Value>
-              <Statistic.Label className="farsi">
-                موجودی {prop.menu?.usd && "دلاری"} شما
-              </Statistic.Label>
-            </Statistic>
+          <Statistic inverted size="tiny">
+                  <Statistic.Value>
+                    {prop.menu?.usd ? (
+                      <>
+                        <span className="text-gold">$</span>{" "}
+                       
+                        {doCurrency((loginToken?.balance2).toFixed(2))}
+                      </>
+                    ) : (
+                      doCurrency(loginToken?.balance)
+                    )}
+                  </Statistic.Value>
+                  <Statistic.Label className="farsi">
+                  {Trans("yourbalance")}
+                  </Statistic.Label>
+                </Statistic>
           </Segment>
           {depMode == "Bank Transfer" && (
             <>

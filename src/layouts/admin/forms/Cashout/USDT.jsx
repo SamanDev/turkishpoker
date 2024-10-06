@@ -13,6 +13,17 @@ import Trans from "../../../../utils/getword";
 import AddSchema from "../../../../utils/schema";
 import { Button, Progress,Icon, Divider,Label } from "semantic-ui-react";
 import DollarSelect from "../../../../components/form/dollarSelect";
+var amounts = [
+  { value: 1 },
+  { value: 2 },
+  { value: 3 },
+  { value: 5 },
+  { value: 10 },
+  { value: 25 },
+  { value: 50 },
+  { value: 100 },
+
+];
 const onSubmit = async (values, submitMethods, navigate, prop, setRefresh) => {
   try {
     const res = await cashierService(values, "nowPayments", "");
@@ -24,7 +35,7 @@ const onSubmit = async (values, submitMethods, navigate, prop, setRefresh) => {
   } catch (error) {
     submitMethods.setSubmitting(false);
 
-    Alert("متاسفم...!", "متاسفانه مشکلی از سمت سرور رخ داده", "error");
+   // Alert("متاسفم...!", "متاسفانه مشکلی از سمت سرور رخ داده", "error");
   }
 };
 
@@ -82,17 +93,36 @@ const depositArea = (prop) => {
       {(formik) => {
         return (
           <Form>
-               <DollarSelect loginToken={loginToken} formik={formik} getRate={getRate}/>
-              <FormikControl
-              formik={formik}
-              control="amount"
-              name="amount"
-              labelcolor={prop.labelcolor}
-              size={prop.size}
-              dollar={false}
-              rate={true}
-              setGetRate={setGetRate}
-            /><Divider/>
+             <Button.Group vertical fluid  type="button">
+            {amounts.map((amo,i) => {
+                 
+                      return (
+                    <Button
+                      type="button"
+                      key={amo.value}
+                      icon labelPosition='right'
+                      className="farsi"
+                      color={
+                        formik.values.amount == amo.value*1000 ? "red" : "grey"
+                      }
+                      onClick={() => {
+                        formik.setFieldValue("amount", amo.value*1000);
+                      }}
+                      disabled={
+                        loginToken.balance < amo.value*1000 ? true : false
+                      }
+                    >
+                     
+                      {doCurrency(amo.value*1000)}
+                      <Icon className="usdbtn farsi">{Trans("unit")}</Icon>
+             
+                    </Button>
+                  );
+                  }
+                
+                )}
+              </Button.Group>
+             <Divider/>
             <FormikControl
               formik={formik}
               control="input"
